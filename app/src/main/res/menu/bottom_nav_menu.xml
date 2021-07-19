@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/languagesFragment"
+        android:icon="@drawable/ic_languages"
+        android:title="@string/menu_title_languages"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/programsFragment"
+        android:icon="@drawable/ic_programs"
+        android:title="@string/menu_title_programs"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/componentsFragment"
+        android:icon="@drawable/ic_components"
+        android:title="@string/menu_title_components"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/incomeFragment"
+        android:icon="@drawable/ic_income"
+        android:title="@string/menu_title_income"
+        app:showAsAction="ifRoom" />
+</menu>

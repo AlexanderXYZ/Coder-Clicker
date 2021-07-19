@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Coder Clicker</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_title_languages">Languages</string>
+    <string name="menu_title_programs">Programs</string>
+    <string name="menu_title_components">Components</string>
+    <string name="menu_title_income">Income</string>
 </resources>

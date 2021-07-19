@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.buslaev.coderclicker.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/componentsFragment"
+        android:name="com.buslaev.coderclicker.fragments.ComponentsFragment"
+        android:label="fragment_components"
+        tools:layout="@layout/fragment_components" />
+    <fragment
+        android:id="@+id/incomeFragment"
+        android:name="com.buslaev.coderclicker.fragments.IncomeFragment"
+        android:label="fragment_income"
+        tools:layout="@layout/fragment_income" />
+    <fragment
+        android:id="@+id/languagesFragment"
+        android:name="com.buslaev.coderclicker.fragments.LanguagesFragment"
+        android:label="fragment_languages"
+        tools:layout="@layout/fragment_languages" />
+    <fragment
+        android:id="@+id/programsFragment"
+        android:name="com.buslaev.coderclicker.fragments.ProgramsFragment"
+        android:label="fragment_programs"
+        tools:layout="@layout/fragment_programs" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.buslaev.coderclicker.fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

@@ -7,4 +7,6 @@
     <string name="menu_title_components">Components</string>
     <string name="menu_title_income">Income</string>
     <string name="shop_item_purchased">Purchased</string>
+    <string name="button_text_ide">IDE</string>
+    <string name="button_text_os">OS</string>
 </resources>

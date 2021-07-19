@@ -1,14 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.shops.ComponentsFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <import type="com.buslaev.coderclicker.other.Components" />
+
+        <variable
+            name="components"
+            type="com.buslaev.coderclicker.other.Components" />
+
+        <variable
+            name="viewModel"
+            type="com.buslaev.coderclicker.viewModels.ShopViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".fragments.shops.ComponentsFragment">
 
-</FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/components_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/components_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/shop_item" />
+
+        <LinearLayout
+            android:id="@+id/components_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_nav_view_height"
+            android:layout_marginBottom="@dimen/bottom_nav_view_height"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="Процессоры"
+                android:onClick="@{()->viewModel.getComponents(Components.PROCESSORS)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_components" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="Мат плата"
+                android:onClick="@{()->viewModel.getComponents(Components.MOTHERBOARD)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_components" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="Видеокарта"
+                android:onClick="@{()->viewModel.getComponents(Components.VIDEOCARDS)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_components" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="Память"
+                android:onClick="@{()->viewModel.getComponents(Components.MEMORY)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_components" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="Монитор"
+                android:onClick="@{()->viewModel.getComponents(Components.MONITORS)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_components" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="Корпус"
+                android:onClick="@{()->viewModel.getComponents(Components.CORPUS)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_components" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="Клавиатура"
+                android:onClick="@{()->viewModel.getComponents(Components.KEYBOARDS)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_components" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="Интернет"
+                android:onClick="@{()->viewModel.getComponents(Components.INTERNETS)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_components" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

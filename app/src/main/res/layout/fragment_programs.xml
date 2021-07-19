@@ -1,14 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.shops.ProgramsFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <import type="com.buslaev.coderclicker.other.Programs" />
+
+        <variable
+            name="programs"
+            type="com.buslaev.coderclicker.other.Programs" />
+
+        <variable
+            name="viewModel"
+            type="com.buslaev.coderclicker.viewModels.ShopViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="progrmas" />
+        tools:context=".fragments.shops.ProgramsFragment">
 
-</FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/programs_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/programs_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/shop_item" />
+
+        <LinearLayout
+            android:id="@+id/programs_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_nav_view_height"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:layout_marginBottom="@dimen/bottom_nav_view_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/programs_button_ide"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->viewModel.getPrograms(programs.IDE)}"
+                android:text="@string/button_text_ide" />
+
+            <Button
+                android:id="@+id/programs_button_os"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->viewModel.getPrograms(programs.OS)}"
+                android:text="@string/button_text_os" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

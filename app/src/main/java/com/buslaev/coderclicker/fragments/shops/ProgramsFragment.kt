@@ -1,4 +1,4 @@
-package com.buslaev.coderclicker.fragments
+package com.buslaev.coderclicker.fragments.shops
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import com.buslaev.coderclicker.R
 
 
-class LanguagesFragment : Fragment() {
+class ProgramsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_languages, container, false)
+        return inflater.inflate(R.layout.fragment_programs, container, false)
     }
 }

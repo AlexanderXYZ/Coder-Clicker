@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1073372471650",
+    "project_id": "coder-clicker",
+    "storage_bucket": "coder-clicker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073372471650:android:733a57e588fe708cb9cc3b",
+        "android_client_info": {
+          "package_name": "com.buslaev.coderclicker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1073372471650-qk6q2fsti6c7g00mp7818tsocvocqt01.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXhzZeoyk7Q0hP9FUOYbLuuI27przhO3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1073372471650-qk6q2fsti6c7g00mp7818tsocvocqt01.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,15 @@ package com.buslaev.coderclicker.other
 
 object Constants {
 
+    /*Shared Preference*/
+    const val STATS_STORAGE = "statsStorage"
+    const val APP_COUNTS_OF_CODE = "countsOfCode"
+    const val APP_COUNTS_OF_MONEY = "countsOfMoney"
+    const val APP_CODES_PER_CLICK = "codesPerClick"
+
+    const val SHOP_STORAGE = "shopStorage"
+    const val APP_LANGUAGES_PURCHESED = "codesPerClick"
+
     /* Collections */
     const val LANGUAGE_COLLECTION = "languages"
     const val PROGRAMS_COLLECTION = "programs"

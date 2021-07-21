@@ -1,4 +1,4 @@
-package com.buslaev.coderclicker.viewModels
+package com.buslaev.coderclicker.viewModels.shopViewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -83,7 +83,7 @@ class ShopViewModel(shopType: String) : ViewModel() {
     }
 
     private fun getProgramsOs() = viewModelScope.launch {
-        val data = repository.getProgramsIde()
+        val data = repository.getProgramsOs()
         _programsData.postValue(data)
     }
 

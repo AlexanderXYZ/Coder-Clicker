@@ -14,22 +14,38 @@
         android:id="@+id/componentsFragment"
         android:name="com.buslaev.coderclicker.fragments.shops.ComponentsFragment"
         android:label="fragment_components"
-        tools:layout="@layout/fragment_components" />
+        tools:layout="@layout/fragment_components" >
+        <action
+            android:id="@+id/action_componentsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/incomeFragment"
         android:name="com.buslaev.coderclicker.fragments.shops.IncomeFragment"
         android:label="fragment_income"
-        tools:layout="@layout/fragment_income" />
+        tools:layout="@layout/fragment_income" >
+        <action
+            android:id="@+id/action_incomeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/languagesFragment"
         android:name="com.buslaev.coderclicker.fragments.shops.LanguagesFragment"
         android:label="fragment_languages"
-        tools:layout="@layout/fragment_languages" />
+        tools:layout="@layout/fragment_languages" >
+        <action
+            android:id="@+id/action_languagesFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/programsFragment"
         android:name="com.buslaev.coderclicker.fragments.shops.ProgramsFragment"
         android:label="fragment_programs"
-        tools:layout="@layout/fragment_programs" />
+        tools:layout="@layout/fragment_programs" >
+        <action
+            android:id="@+id/action_programsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.buslaev.coderclicker.fragments.SettingsFragment"

@@ -9,14 +9,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.buslaev.coderclicker.ClickerApplication.Companion.globalProgramsShop
 import com.buslaev.coderclicker.R
 import com.buslaev.coderclicker.adapters.ShopAdapter
 import com.buslaev.coderclicker.models.ShopModel
 import com.buslaev.coderclicker.other.Constants.PROGRAMS_TYPE
-import com.buslaev.coderclicker.other.Programs.*
-import com.buslaev.coderclicker.viewModels.ShopViewModel
-import com.buslaev.coderclicker.viewModels.ShopViewModelFactory
-import kotlinx.android.synthetic.main.fragment_languages.*
+import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModel
+import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModelFactory
 import kotlinx.android.synthetic.main.fragment_programs.*
 
 
@@ -50,7 +49,7 @@ class ProgramsFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        mAdapter = ShopAdapter()
+        mAdapter = ShopAdapter(globalProgramsShop)
         mRecyclerView = programs_recyclerView
         mRecyclerView.apply {
             adapter = mAdapter
@@ -58,6 +57,11 @@ class ProgramsFragment : Fragment() {
         }
         mObserver = Observer { list ->
             val sortedList = list.sortedBy { it.id }
+            for (item in sortedList) {
+                if (globalProgramsShop.containsKey(item.imageUrl)) {
+                    item.purchased = true
+                }
+            }
             mAdapter.setList(sortedList)
         }
         mViewModel.programsData.observe(viewLifecycleOwner, mObserver)

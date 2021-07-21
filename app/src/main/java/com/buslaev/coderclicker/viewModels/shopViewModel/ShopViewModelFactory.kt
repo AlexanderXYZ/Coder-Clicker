@@ -1,4 +1,4 @@
-package com.buslaev.coderclicker.viewModels
+package com.buslaev.coderclicker.viewModels.shopViewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

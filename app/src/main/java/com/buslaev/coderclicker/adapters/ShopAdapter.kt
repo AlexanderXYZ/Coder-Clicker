@@ -5,11 +5,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.buslaev.coderclicker.ClickerApplication.Companion.globalClickCode
+import com.buslaev.coderclicker.ClickerApplication.Companion.globalCodesPerClick
+import com.buslaev.coderclicker.ClickerApplication.Companion.globalLanguagesShop
 import com.buslaev.coderclicker.R
 import com.buslaev.coderclicker.models.ShopModel
 import kotlinx.android.synthetic.main.shop_item.view.*
 
-class ShopAdapter : RecyclerView.Adapter<ShopAdapter.ShopViewHolder>() {
+class ShopAdapter(
+    private val globalShop: HashMap<String, Boolean>
+) : RecyclerView.Adapter<ShopAdapter.ShopViewHolder>() {
 
     private var mList = emptyList<ShopModel>()
 
@@ -32,6 +37,11 @@ class ShopAdapter : RecyclerView.Adapter<ShopAdapter.ShopViewHolder>() {
                 }
             } else {
                 button_buy_shop_item.text = "$" + currentItem.price
+            }
+            button_buy_shop_item.setOnClickListener {
+                globalClickCode -= currentItem.price.toInt()
+                globalCodesPerClick += currentItem.growth.toInt()
+                globalShop[currentItem.imageUrl] = true
             }
 
             Glide

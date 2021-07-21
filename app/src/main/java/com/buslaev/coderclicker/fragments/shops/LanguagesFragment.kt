@@ -9,12 +9,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.buslaev.coderclicker.ClickerApplication
+import com.buslaev.coderclicker.ClickerApplication.Companion.globalLanguagesShop
 import com.buslaev.coderclicker.R
 import com.buslaev.coderclicker.adapters.ShopAdapter
 import com.buslaev.coderclicker.models.ShopModel
 import com.buslaev.coderclicker.other.Constants.LANGUAGE_TYPE
-import com.buslaev.coderclicker.viewModels.ShopViewModel
-import com.buslaev.coderclicker.viewModels.ShopViewModelFactory
+import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModel
+import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModelFactory
 import kotlinx.android.synthetic.main.fragment_languages.*
 
 
@@ -48,7 +50,7 @@ class LanguagesFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        mAdapter = ShopAdapter()
+        mAdapter = ShopAdapter(globalLanguagesShop)
         mRecyclerView = languages_recyclerView
         mRecyclerView.apply {
             adapter = mAdapter
@@ -56,6 +58,11 @@ class LanguagesFragment : Fragment() {
         }
         mObserver = Observer { list ->
             val sortedList = list.sortedBy { it.id }
+            for (item in sortedList) {
+                if (globalLanguagesShop.containsKey(item.imageUrl)) {
+                    item.purchased = true
+                }
+            }
             mAdapter.setList(sortedList)
         }
         mViewModel.languagesData.observe(viewLifecycleOwner, mObserver)

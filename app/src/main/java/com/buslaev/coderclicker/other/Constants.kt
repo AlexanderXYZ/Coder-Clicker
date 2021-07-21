@@ -10,6 +10,7 @@ object Constants {
 
     const val SHOP_STORAGE = "shopStorage"
     const val APP_LANGUAGES_PURCHESED = "codesPerClick"
+    const val APP_LANGUAGES_REMAINED = "languagesRemained"
 
     /* Collections */
     const val LANGUAGE_COLLECTION = "languages"

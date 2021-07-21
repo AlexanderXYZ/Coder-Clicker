@@ -37,105 +37,41 @@ class ShopViewModel(shopType: String) : ViewModel() {
     init {
         when (shopType) {
             LANGUAGE_TYPE -> getLanguages()
-            PROGRAMS_TYPE -> getProgramsIde()
-            COMPONENTS_TYPE -> getComponentsProcessors()
-            INCOME_TYPE -> getIncomeSelling()
+            PROGRAMS_TYPE -> getPrograms(IDE)
+            COMPONENTS_TYPE -> getComponents(PROCESSORS)
+            INCOME_TYPE -> getIncome(SELLING)
         }
     }
 
     fun getPrograms(typeProgram: Programs) {
-        when (typeProgram) {
-            IDE -> getProgramsIde()
-            OS -> getProgramsOs()
-        }
+        getProgramsFromRepository(typeProgram)
     }
 
     fun getComponents(typeComponents: Components) {
-        when (typeComponents) {
-            PROCESSORS -> getComponentsProcessors()
-            MOTHERBOARD -> getComponentsMotherboard()
-            VIDEOCARDS -> getComponentsVideocards()
-            MEMORY -> getComponentsMemory()
-            MONITORS -> getComponentsMonitors()
-            CORPUS -> getComponentsCorpus()
-            KEYBOARDS -> getComponentsKeyboards()
-            INTERNETS -> getComponentsInternets()
-        }
+        getComponentsFromRepository(typeComponents)
     }
 
     fun getIncome(typeIncome: Income) {
-        when (typeIncome) {
-            SELLING -> getIncomeSelling()
-            PROJECTS -> getIncomeProjects()
-        }
+        getIncomeFromRepository(typeIncome)
     }
 
-    /* languages */
     private fun getLanguages() = viewModelScope.launch {
         val data = repository.getLanguages()
         _languagesData.postValue(data)
     }
 
-    /* programs */
-    private fun getProgramsIde() = viewModelScope.launch {
-        val data = repository.getProgramsIde()
+    private fun getProgramsFromRepository(typeProgram: Programs) = viewModelScope.launch {
+        val data = repository.getPrograms(typeProgram)
         _programsData.postValue(data)
     }
 
-    private fun getProgramsOs() = viewModelScope.launch {
-        val data = repository.getProgramsOs()
-        _programsData.postValue(data)
-    }
-
-    /* components */
-    private fun getComponentsProcessors() = viewModelScope.launch {
-        val data = repository.getComponents()
+    private fun getComponentsFromRepository(typeComponents: Components) = viewModelScope.launch {
+        val data = repository.getComponents(typeComponents)
         _componentsData.postValue(data)
     }
 
-    private fun getComponentsMotherboard() = viewModelScope.launch {
-        val data = repository.getComponents()
-        _componentsData.postValue(data)
-    }
-
-    private fun getComponentsVideocards() = viewModelScope.launch {
-        val data = repository.getComponents()
-        _componentsData.postValue(data)
-    }
-
-    private fun getComponentsMemory() = viewModelScope.launch {
-        val data = repository.getComponents()
-        _componentsData.postValue(data)
-    }
-
-    private fun getComponentsMonitors() = viewModelScope.launch {
-        val data = repository.getComponents()
-        _componentsData.postValue(data)
-    }
-
-    private fun getComponentsCorpus() = viewModelScope.launch {
-        val data = repository.getComponents()
-        _componentsData.postValue(data)
-    }
-
-    private fun getComponentsKeyboards() = viewModelScope.launch {
-        val data = repository.getComponents()
-        _componentsData.postValue(data)
-    }
-
-    private fun getComponentsInternets() = viewModelScope.launch {
-        val data = repository.getComponents()
-        _componentsData.postValue(data)
-    }
-
-    /* income */
-    private fun getIncomeSelling() = viewModelScope.launch {
-        val data = repository.getIncome()
-        _incomeData.postValue(data)
-    }
-
-    private fun getIncomeProjects() = viewModelScope.launch {
-        val data = repository.getIncome()
+    private fun getIncomeFromRepository(typeIncome: Income) = viewModelScope.launch {
+        val data = repository.getIncome(typeIncome)
         _incomeData.postValue(data)
     }
 }

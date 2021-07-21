@@ -9,10 +9,10 @@ class ClickerApplication : Application() {
         var globalMoney: Int = 0
         var globalCodesPerClick: Int = 1
 
-        var globalLanguagesShop: HashMap<String, Boolean> = hashMapOf()
-        var globalProgramsShop: HashMap<String, Boolean> = hashMapOf()
-        var globalComponentsShop: HashMap<String, Boolean> = hashMapOf()
-        var globalIncomeShop: HashMap<String, Boolean> = hashMapOf()
+        var globalLanguagesShop: HashMap<String, Int> = hashMapOf()
+        var globalProgramsShop: HashMap<String, Int> = hashMapOf()
+        var globalComponentsShop: HashMap<String, Int> = hashMapOf()
+        var globalIncomeShop: HashMap<String, Int> = hashMapOf()
     }
 
 }

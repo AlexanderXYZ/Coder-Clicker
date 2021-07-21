@@ -60,7 +60,7 @@ class LanguagesFragment : Fragment() {
             val sortedList = list.sortedBy { it.id }
             for (item in sortedList) {
                 if (globalLanguagesShop.containsKey(item.imageUrl)) {
-                    item.purchased = true
+                    item.remained = globalLanguagesShop[item.imageUrl].toString()
                 }
             }
             mAdapter.setList(sortedList)

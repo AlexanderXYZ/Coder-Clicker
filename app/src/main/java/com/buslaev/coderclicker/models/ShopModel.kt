@@ -6,5 +6,6 @@ data class ShopModel(
     val imageUrl: String = "",
     val price: String = "",
     val growth: String = "",
+    var remained: String = "",
     var purchased: Boolean = false
 )

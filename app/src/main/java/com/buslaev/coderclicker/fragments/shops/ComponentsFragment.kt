@@ -60,7 +60,7 @@ class ComponentsFragment : Fragment() {
             val sortedList = list.sortedBy { it.id }
             for (item in sortedList) {
                 if (globalComponentsShop.containsKey(item.imageUrl)) {
-                    item.purchased = true
+                    item.remained = globalComponentsShop[item.imageUrl].toString()
                 }
             }
             mAdapter.setList(sortedList)

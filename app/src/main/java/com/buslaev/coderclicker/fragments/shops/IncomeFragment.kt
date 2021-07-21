@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.buslaev.coderclicker.ClickerApplication
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalIncomeShop
 import com.buslaev.coderclicker.R
 import com.buslaev.coderclicker.adapters.ShopAdapter
@@ -59,7 +60,7 @@ class IncomeFragment : Fragment() {
             val sortedList = list.sortedBy { it.id }
             for (item in sortedList) {
                 if (globalIncomeShop.containsKey(item.imageUrl)) {
-                    item.purchased = true
+                    item.remained = globalIncomeShop[item.imageUrl].toString()
                 }
             }
             mAdapter.setList(sortedList)

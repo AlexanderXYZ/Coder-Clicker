@@ -13,7 +13,7 @@ import com.buslaev.coderclicker.models.ShopModel
 import kotlinx.android.synthetic.main.shop_item.view.*
 
 class ShopAdapter(
-    private val globalShop: HashMap<String, Boolean>
+    private val globalShop: HashMap<String, Int>
 ) : RecyclerView.Adapter<ShopAdapter.ShopViewHolder>() {
 
     private var mList = emptyList<ShopModel>()
@@ -30,10 +30,10 @@ class ShopAdapter(
         holder.itemView.apply {
             title_shop_item.text = currentItem.title
             growth_shop_item.text = currentItem.growth
-            if (currentItem.purchased) {
+            if (currentItem.remained.toInt() == 0) {
                 button_buy_shop_item.apply {
+                    image_sold_out_shop_item.visibility = View.VISIBLE
                     isEnabled = false
-                    text = context.getString(R.string.shop_item_purchased)
                 }
             } else {
                 button_buy_shop_item.text = "$" + currentItem.price
@@ -41,7 +41,9 @@ class ShopAdapter(
             button_buy_shop_item.setOnClickListener {
                 globalClickCode -= currentItem.price.toInt()
                 globalCodesPerClick += currentItem.growth.toInt()
-                globalShop[currentItem.imageUrl] = true
+                globalShop[currentItem.imageUrl] = currentItem.remained.toInt() - 1
+                currentItem.remained = globalShop[currentItem.imageUrl].toString()
+                notifyItemChanged(position)
             }
 
             Glide

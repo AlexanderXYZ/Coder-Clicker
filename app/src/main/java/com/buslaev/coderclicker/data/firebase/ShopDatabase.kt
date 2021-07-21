@@ -1,10 +1,16 @@
 package com.buslaev.coderclicker.data.firebase
 
 import com.buslaev.coderclicker.models.ShopModel
+import com.buslaev.coderclicker.other.Components
+import com.buslaev.coderclicker.other.Components.*
 import com.buslaev.coderclicker.other.Constants.COMPONENTS_COLLECTION
 import com.buslaev.coderclicker.other.Constants.INCOME_COLLECTION
 import com.buslaev.coderclicker.other.Constants.LANGUAGE_COLLECTION
 import com.buslaev.coderclicker.other.Constants.PROGRAMS_COLLECTION
+import com.buslaev.coderclicker.other.Income
+import com.buslaev.coderclicker.other.Income.*
+import com.buslaev.coderclicker.other.Programs
+import com.buslaev.coderclicker.other.Programs.*
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 import java.lang.Exception
@@ -24,30 +30,42 @@ class ShopDatabase {
             emptyList()
         }
     }
-    suspend fun getProgramsIde(): List<ShopModel> {
+
+    suspend fun getPrograms(typePrograms: Programs): List<ShopModel> {
         return try {
-            programsCollection.get().await().toObjects(ShopModel::class.java)
+            when (typePrograms) {
+                IDE -> programsCollection.get().await().toObjects(ShopModel::class.java)
+                OS -> programsCollection.get().await().toObjects(ShopModel::class.java)
+            }
         } catch (e: Exception) {
             emptyList()
         }
     }
-    suspend fun getProgramsOs(): List<ShopModel> {
+
+    suspend fun getComponents(typeComponents: Components): List<ShopModel> {
         return try {
-            programsCollection.get().await().toObjects(ShopModel::class.java)
+            when (typeComponents) {
+                PROCESSORS -> componentsCollection.get().await().toObjects(ShopModel::class.java)
+                MOTHERBOARD -> componentsCollection.get().await().toObjects(ShopModel::class.java)
+                VIDEOCARDS -> componentsCollection.get().await().toObjects(ShopModel::class.java)
+                MEMORY -> componentsCollection.get().await().toObjects(ShopModel::class.java)
+                MONITORS -> componentsCollection.get().await().toObjects(ShopModel::class.java)
+                CORPUS -> componentsCollection.get().await().toObjects(ShopModel::class.java)
+                KEYBOARDS -> componentsCollection.get().await().toObjects(ShopModel::class.java)
+                INTERNETS -> componentsCollection.get().await().toObjects(ShopModel::class.java)
+            }
         } catch (e: Exception) {
             emptyList()
         }
     }
-    suspend fun getComponents(): List<ShopModel> {
+
+    suspend fun getIncome(typeIncome: Income): List<ShopModel> {
         return try {
-            componentsCollection.get().await().toObjects(ShopModel::class.java)
-        } catch (e: Exception) {
-            emptyList()
-        }
-    }
-    suspend fun getIncome(): List<ShopModel> {
-        return try {
-            incomeCollection.get().await().toObjects(ShopModel::class.java)
+            when (typeIncome) {
+                SELLING -> incomeCollection.get().await().toObjects(ShopModel::class.java)
+                PROJECTS -> incomeCollection.get().await().toObjects(ShopModel::class.java)
+            }
+
         } catch (e: Exception) {
             emptyList()
         }

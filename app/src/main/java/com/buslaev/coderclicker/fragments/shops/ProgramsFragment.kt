@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.buslaev.coderclicker.ClickerApplication
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalProgramsShop
 import com.buslaev.coderclicker.R
 import com.buslaev.coderclicker.adapters.ShopAdapter
@@ -59,7 +60,7 @@ class ProgramsFragment : Fragment() {
             val sortedList = list.sortedBy { it.id }
             for (item in sortedList) {
                 if (globalProgramsShop.containsKey(item.imageUrl)) {
-                    item.purchased = true
+                    item.remained = globalProgramsShop[item.imageUrl].toString()
                 }
             }
             mAdapter.setList(sortedList)

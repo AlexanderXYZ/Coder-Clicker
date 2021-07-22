@@ -14,10 +14,15 @@ import com.buslaev.coderclicker.ClickerApplication.Companion.globalProgramsShop
 import com.buslaev.coderclicker.R
 import com.buslaev.coderclicker.adapters.ShopAdapter
 import com.buslaev.coderclicker.models.ShopModel
+import com.buslaev.coderclicker.other.Constants.MAX_REMAINED
+import com.buslaev.coderclicker.other.Constants.MULTIPLIER
 import com.buslaev.coderclicker.other.Constants.PROGRAMS_TYPE
+import com.buslaev.coderclicker.other.Shops
 import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModel
 import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModelFactory
 import kotlinx.android.synthetic.main.fragment_programs.*
+import kotlin.math.pow
+import kotlin.math.roundToInt
 
 
 class ProgramsFragment : Fragment() {
@@ -50,7 +55,7 @@ class ProgramsFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        mAdapter = ShopAdapter(globalProgramsShop)
+        mAdapter = ShopAdapter(Shops.PROGRAMS,requireContext())
         mRecyclerView = programs_recyclerView
         mRecyclerView.apply {
             adapter = mAdapter

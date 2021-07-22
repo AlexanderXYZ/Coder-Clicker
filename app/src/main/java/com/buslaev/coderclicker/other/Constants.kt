@@ -23,4 +23,8 @@ object Constants {
     const val PROGRAMS_TYPE = "programs"
     const val COMPONENTS_TYPE = "components"
     const val INCOME_TYPE = "income"
+
+
+    const val MAX_REMAINED = 10
+    const val MULTIPLIER = 2.2
 }

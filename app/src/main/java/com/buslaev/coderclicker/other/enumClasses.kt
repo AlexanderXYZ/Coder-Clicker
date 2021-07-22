@@ -1,5 +1,9 @@
 package com.buslaev.coderclicker.other
 
+enum class Shops {
+    LANGUAGES, PROGRAMS, COMPONENTS, INCOME
+}
+
 enum class Programs {
     IDE, OS
 }

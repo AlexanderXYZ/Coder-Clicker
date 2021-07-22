@@ -43,6 +43,17 @@
             app:layout_constraintStart_toStartOf="@id/title_shop_item"
             app:layout_constraintTop_toBottomOf="@id/title_shop_item" />
 
+        <TextView
+            android:id="@+id/remained_shop_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:layout_marginEnd="50dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/button_buy_shop_item"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
         <Button
             android:id="@+id/button_buy_shop_item"
             android:layout_width="60dp"
@@ -58,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:src="@drawable/sold_out"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

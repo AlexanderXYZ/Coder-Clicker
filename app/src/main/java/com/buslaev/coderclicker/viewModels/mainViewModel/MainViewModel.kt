@@ -1,11 +1,13 @@
 package com.buslaev.coderclicker.viewModels.mainViewModel
 
+import android.view.animation.AnimationUtils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalClickCode
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalCodesPerClick
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalMoney
+import com.buslaev.coderclicker.R
 
 class MainViewModel : ViewModel() {
 

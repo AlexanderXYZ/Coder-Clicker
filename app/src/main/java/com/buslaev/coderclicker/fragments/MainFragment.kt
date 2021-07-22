@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.lifecycle.ViewModelProvider
+import com.buslaev.coderclicker.R
 import com.buslaev.coderclicker.databinding.FragmentMainBinding
 import com.buslaev.coderclicker.viewModels.mainViewModel.MainViewModel
 
@@ -29,6 +31,15 @@ class MainFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val dropDownAnim = AnimationUtils.loadAnimation(context, R.anim.drop_down_code)
+        mBinding.screenCl.setOnClickListener {
+            mViewModel.increaseCounter()
+            mBinding.animTextView.startAnimation(dropDownAnim)
+        }
     }
 
     override fun onResume() {

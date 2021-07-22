@@ -15,6 +15,7 @@ import com.buslaev.coderclicker.R
 import com.buslaev.coderclicker.adapters.ShopAdapter
 import com.buslaev.coderclicker.models.ShopModel
 import com.buslaev.coderclicker.other.Constants.INCOME_TYPE
+import com.buslaev.coderclicker.other.Shops
 import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModel
 import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModelFactory
 import kotlinx.android.synthetic.main.fragment_income.*
@@ -50,7 +51,7 @@ class IncomeFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        mAdapter = ShopAdapter(globalIncomeShop)
+        mAdapter = ShopAdapter(Shops.INCOME,requireContext())
         mRecyclerView = income_recyclerView
         mRecyclerView.apply {
             adapter = mAdapter

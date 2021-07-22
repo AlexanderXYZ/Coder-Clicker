@@ -15,6 +15,8 @@ import com.buslaev.coderclicker.R
 import com.buslaev.coderclicker.adapters.ShopAdapter
 import com.buslaev.coderclicker.models.ShopModel
 import com.buslaev.coderclicker.other.Constants.COMPONENTS_TYPE
+import com.buslaev.coderclicker.other.Shops
+import com.buslaev.coderclicker.other.Shops.COMPONENTS
 import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModel
 import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModelFactory
 import kotlinx.android.synthetic.main.fragment_components.*
@@ -50,7 +52,7 @@ class ComponentsFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        mAdapter = ShopAdapter(globalComponentsShop)
+        mAdapter = ShopAdapter(COMPONENTS,requireContext())
         mRecyclerView = components_recyclerView
         mRecyclerView.apply {
             adapter = mAdapter

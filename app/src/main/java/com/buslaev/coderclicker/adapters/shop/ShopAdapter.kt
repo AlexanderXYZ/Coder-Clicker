@@ -1,7 +1,6 @@
-package com.buslaev.coderclicker.adapters
+package com.buslaev.coderclicker.adapters.shop
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,16 +9,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.buslaev.coderclicker.ClickerApplication.Companion.globalClickCode
-import com.buslaev.coderclicker.ClickerApplication.Companion.globalCodesPerClick
-import com.buslaev.coderclicker.ClickerApplication.Companion.globalLanguagesShop
 import com.buslaev.coderclicker.R
 import com.buslaev.coderclicker.models.ShopModel
-import com.buslaev.coderclicker.other.Constants
 import com.buslaev.coderclicker.other.Shops
-import kotlinx.android.synthetic.main.shop_item.view.*
-import kotlin.math.pow
-import kotlin.math.roundToInt
 
 class ShopAdapter(
     private val shop: Shops,

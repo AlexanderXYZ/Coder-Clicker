@@ -1,7 +1,6 @@
 package com.buslaev.coderclicker.fragments.shops
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,22 +9,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.buslaev.coderclicker.ClickerApplication
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalLanguagesShop
 import com.buslaev.coderclicker.R
-import com.buslaev.coderclicker.adapters.ShopAdapter
+import com.buslaev.coderclicker.adapters.shop.ShopAdapter
 import com.buslaev.coderclicker.models.ShopModel
-import com.buslaev.coderclicker.other.Constants
 import com.buslaev.coderclicker.other.Constants.LANGUAGE_TYPE
-import com.buslaev.coderclicker.other.Constants.MAX_REMAINED
-import com.buslaev.coderclicker.other.Constants.MULTIPLIER
-import com.buslaev.coderclicker.other.Shops
 import com.buslaev.coderclicker.other.Shops.LANGUAGES
 import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModel
 import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModelFactory
 import kotlinx.android.synthetic.main.fragment_languages.*
-import kotlin.math.pow
-import kotlin.math.roundToInt
 
 
 class LanguagesFragment : Fragment() {

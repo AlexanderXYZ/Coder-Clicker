@@ -8,6 +8,7 @@ class ClickerApplication : Application() {
         var globalClickCode: Int = 0
         var globalMoney: Int = 0
         var globalCodesPerClick: Int = 1
+        var globalMoneyPerSecond: Int = 0
 
         var globalLanguagesShop: HashMap<String, Int> = hashMapOf()
         var globalProgramsShop: HashMap<String, Int> = hashMapOf()

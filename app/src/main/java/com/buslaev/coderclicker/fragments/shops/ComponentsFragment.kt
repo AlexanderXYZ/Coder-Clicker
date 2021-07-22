@@ -9,13 +9,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.buslaev.coderclicker.ClickerApplication
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalComponentsShop
 import com.buslaev.coderclicker.R
-import com.buslaev.coderclicker.adapters.ShopAdapter
+import com.buslaev.coderclicker.adapters.shop.ShopAdapter
 import com.buslaev.coderclicker.models.ShopModel
 import com.buslaev.coderclicker.other.Constants.COMPONENTS_TYPE
-import com.buslaev.coderclicker.other.Shops
 import com.buslaev.coderclicker.other.Shops.COMPONENTS
 import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModel
 import com.buslaev.coderclicker.viewModels.shopViewModel.ShopViewModelFactory

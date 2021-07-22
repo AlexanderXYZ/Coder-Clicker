@@ -7,5 +7,6 @@ data class ShopModel(
     var price: String = "",
     val growth: String = "",
     var remained: String = "",
-    var purchased: Boolean = false
+    var purchased: Boolean = false,
+    var projects: Boolean = false
 )

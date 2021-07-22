@@ -8,12 +8,12 @@ import com.buslaev.coderclicker.ClickerApplication.Companion.globalClickCode
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalCodesPerClick
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalMoney
 import com.buslaev.coderclicker.R
+import com.buslaev.coderclicker.other.Constants.BILLION
+import com.buslaev.coderclicker.other.Constants.MILLION
+import com.buslaev.coderclicker.other.Constants.THOUSAND
 
 class MainViewModel : ViewModel() {
 
-    private val THOUSAND = 1_000
-    private val MILLION = 1_000_000
-    private val BILLION = 1_000_000_000
 
     private var _codes = MutableLiveData<String>()
     val codes: LiveData<String> get() = _codes

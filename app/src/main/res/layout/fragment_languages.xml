@@ -9,6 +9,7 @@
         android:id="@+id/languages_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/shop_item" />
+        tools:listitem="@layout/shop_item"
+        android:layout_marginBottom="@dimen/bottom_nav_view_height"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,5 @@
-package com.buslaev.coderclicker.adapters
+package com.buslaev.coderclicker.adapters.shop
 
-import android.util.Log
-import com.buslaev.coderclicker.ClickerApplication
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalClickCode
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalCodesPerClick
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalComponentsShop
@@ -9,6 +7,7 @@ import com.buslaev.coderclicker.ClickerApplication.Companion.globalIncomeShop
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalLanguagesShop
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalMoney
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalProgramsShop
+import com.buslaev.coderclicker.adapters.CurrentItem
 import com.buslaev.coderclicker.models.ShopModel
 import com.buslaev.coderclicker.other.Constants.MAX_REMAINED
 import com.buslaev.coderclicker.other.Constants.MULTIPLIER
@@ -20,22 +19,22 @@ import kotlin.math.roundToInt
 class CurrentShopItem(
     private val currentItem: ShopModel,
     private val shop: Shops
-) {
+) : CurrentItem {
     private var changedPrice = ""
     private var changedRemained = currentItem.remained.toInt()
 
-    fun getTitle(): String = currentItem.title
-    fun getGrowth(): String = currentItem.growth
-    fun getImageUrl(): String = currentItem.imageUrl
-    fun getRemained(): String = changedRemained.toString()
-    fun getPrice(): String {
+    override fun getTitle(): String = currentItem.title
+    override fun getGrowth(): String = currentItem.growth
+    override fun getImageUrl(): String = currentItem.imageUrl
+    override fun getRemained(): String = changedRemained.toString()
+    override fun getPrice(): String {
         val oldPrice = currentItem.price.toInt()
         val remained = currentItem.remained.toInt()
         changedPrice = setChangedPrice(oldPrice, remained)
-        return changedPrice
+        return transformPrice(changedPrice.toInt())
     }
 
-    fun remainedEqualZero(): Boolean {
+    override fun remainedEqualZero(): Boolean {
         return currentItem.remained.toInt() == 0
     }
 
@@ -43,19 +42,16 @@ class CurrentShopItem(
         return globalMoney > changedPrice.toInt()
     }
 
-    fun setGlobalVariables() {
-        if (shop == INCOME) {
-            globalClickCode -= changedPrice.toInt()
-        } else {
-            globalMoney -= changedPrice.toInt()
-        }
+    override fun setGlobalVariables() {
+        globalMoney -= changedPrice.toInt()
         globalCodesPerClick += getGrowth().toInt()
         changedRemained = getRemained().toInt() - 1
         when (shop) {
             LANGUAGES -> globalLanguagesShop[currentItem.imageUrl] = changedRemained
             PROGRAMS -> globalProgramsShop[currentItem.imageUrl] = changedRemained
             COMPONENTS -> globalComponentsShop[currentItem.imageUrl] = changedRemained
-            INCOME -> globalIncomeShop[currentItem.imageUrl] = changedRemained
+            else -> {
+            }
         }
     }
 

@@ -9,4 +9,17 @@
     <string name="shop_item_purchased">Purchased</string>
     <string name="button_text_ide">IDE</string>
     <string name="button_text_os">OS</string>
+    <string name="menu_title_settings">Settings</string>
+
+    <string-array name="codes_array">
+        <item>println("Hello world!")</item>
+        <item>fun sum(a: Int, b: Int) = a + b</item>
+        <item>class Rectangle(var height: Double, var length: Double) {}</item>
+        <item>fun maxOf(a: Int, b: Int) = if (a > b) a else b</item>
+        <item>for (item in items) { println(item) }</item>
+        <item>val list = listOf("a", "b", "c")</item>
+        <item>data class Customer(val name: String, val email: String)</item>
+        <item>val positives = list.filter { it > 0 }</item>
+        <item>val p: String by lazy{}</item>
+    </string-array>
 </resources>

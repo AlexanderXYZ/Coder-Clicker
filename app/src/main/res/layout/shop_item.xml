@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@color/black">
+        android:background="@color/gray">
 
         <ImageView
             android:id="@+id/image_shop_item"
@@ -30,7 +30,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="Title"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@id/image_shop_item"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,22 +39,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+1 click"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/title_shop_item"
             app:layout_constraintTop_toBottomOf="@id/title_shop_item" />
 
-        <TextView
-            android:id="@+id/remained_shop_item"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            android:text="10"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/button_buy_shop_item"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@id/button_buy_shop_item"
+            app:layout_constraintStart_toStartOf="@id/button_buy_shop_item"
+            app:layout_constraintTop_toBottomOf="@id/button_buy_shop_item">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remained: "
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/remained_shop_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/button_buy_shop_item"
@@ -62,7 +73,6 @@
             android:layout_height="60dp"
             android:layout_marginEnd="8dp"
             android:text="10$"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

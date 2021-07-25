@@ -1,5 +1,6 @@
 package com.buslaev.coderclicker.adapters.income
 
+import android.util.Log
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalClickCode
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalIncomeShop
 import com.buslaev.coderclicker.ClickerApplication.Companion.globalMoney
@@ -31,12 +32,20 @@ class CurrentIncomeItem(
     private var income: Income = if (currentItem.projects) PROJECTS else SELLING
 
     override fun getTitle(): String = currentItem.title
-    override fun getGrowth(): String = currentItem.growth
+    override fun getGrowth(): String {
+        return if (income==SELLING){
+            "+${currentItem.growth}$"
+        } else {
+            "+${currentItem.growth}$ per second"
+        }
+    }
     override fun getImageUrl(): String = currentItem.imageUrl
-    override fun getRemained(): String = changedRemained.toString()
+    override fun getRemained(): String =
+        if (income == SELLING) "inf" else changedRemained.toString()
 
     override fun getPrice(): String {
         return if (income == SELLING) {
+            changedPrice = currentItem.price
             transformPrice(currentItem.price.toInt())
         } else {
             val oldPrice = currentItem.price.toInt()

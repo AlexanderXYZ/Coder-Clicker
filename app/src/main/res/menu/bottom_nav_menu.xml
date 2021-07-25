@@ -21,4 +21,9 @@
         android:icon="@drawable/ic_income"
         android:title="@string/menu_title_income"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/menu_title_settings"
+        app:showAsAction="ifRoom" />
 </menu>

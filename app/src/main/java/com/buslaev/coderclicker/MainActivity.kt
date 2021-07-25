@@ -64,6 +64,11 @@ class MainActivity : AppCompatActivity() {
                         navController.navigate(R.id.action_incomeFragment_to_mainFragment)
                     }
                 }
+                R.id.settingsFragment -> {
+                    if (navigateBackOrNot(R.id.settingsFragment)) {
+                        navController.navigate(R.id.action_settingsFragment_to_mainFragment)
+                    }
+                }
             }
         }
     }

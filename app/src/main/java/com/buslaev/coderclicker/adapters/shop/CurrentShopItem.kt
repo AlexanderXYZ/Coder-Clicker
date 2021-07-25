@@ -24,7 +24,10 @@ class CurrentShopItem(
     private var changedRemained = currentItem.remained.toInt()
 
     override fun getTitle(): String = currentItem.title
-    override fun getGrowth(): String = currentItem.growth
+    override fun getGrowth(): String {
+        return "+${currentItem.growth} per click"
+    }
+
     override fun getImageUrl(): String = currentItem.imageUrl
     override fun getRemained(): String = changedRemained.toString()
     override fun getPrice(): String {
@@ -39,7 +42,7 @@ class CurrentShopItem(
     }
 
     fun globalMoneyMorePriceItem(): Boolean {
-        return globalMoney > changedPrice.toInt()
+        return globalMoney >= changedPrice.toInt()
     }
 
     override fun setGlobalVariables() {

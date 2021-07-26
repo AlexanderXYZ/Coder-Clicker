@@ -66,9 +66,9 @@ class CurrentIncomeItem(
     override fun setGlobalVariables() {
         globalClickCode -= changedPrice.toInt()
         if (income == SELLING) {
-            globalMoney += getGrowth().toInt()
+            globalMoney += currentItem.growth.toInt()
         } else {
-            globalMoneyPerSecond += getGrowth().toInt()
+            globalMoneyPerSecond += currentItem.growth.toInt()
             changedRemained = getRemained().toInt() - 1
             globalIncomeShop[getImageUrl()] = changedRemained
         }

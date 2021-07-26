@@ -47,7 +47,7 @@ class CurrentShopItem(
 
     override fun setGlobalVariables() {
         globalMoney -= changedPrice.toInt()
-        globalCodesPerClick += getGrowth().toInt()
+        globalCodesPerClick += currentItem.growth.toInt()
         changedRemained = getRemained().toInt() - 1
         when (shop) {
             LANGUAGES -> globalLanguagesShop[currentItem.imageUrl] = changedRemained

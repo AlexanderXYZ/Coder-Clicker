@@ -21,6 +21,7 @@
         android:layout_height="match_parent"
         tools:context=".fragments.shops.ProgramsFragment">
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/programs_recyclerView"
             android:layout_width="match_parent"
@@ -31,13 +32,25 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/shop_item" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="coming soon..."
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <LinearLayout
             android:id="@+id/programs_linearLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/bottom_nav_view_height"
+            android:layout_marginBottom="@dimen/bottom_nav_view_height"
             android:orientation="horizontal"
             android:padding="1dp"
-            android:layout_marginBottom="@dimen/bottom_nav_view_height"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">

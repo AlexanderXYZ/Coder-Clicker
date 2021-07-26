@@ -14,7 +14,6 @@ import com.buslaev.coderclicker.other.Constants.THOUSAND
 
 class MainViewModel : ViewModel() {
 
-
     private var _codes = MutableLiveData<String>()
     val codes: LiveData<String> get() = _codes
 
@@ -22,12 +21,12 @@ class MainViewModel : ViewModel() {
     val money: LiveData<String> get() = _money
 
     init {
-        _codes.value = globalClickCode.toString()
-        _money.value = globalMoney.toString()
+        setCodesAndMoney()
     }
 
-    fun setCodes(){
-        _codes.value = globalClickCode.toString()
+    fun setCodesAndMoney() {
+        _codes.value = transformCounter(globalClickCode)
+        _money.value = transformCounter(globalMoney)
     }
 
     fun increaseCounter() {
@@ -39,7 +38,12 @@ class MainViewModel : ViewModel() {
     private fun transformCounter(count: Int): String {
         return when (count) {
             in THOUSAND until MILLION -> {
-                "${count / THOUSAND}.${count / 10 % 100}K"
+//                val afterPoint = count / 10 % 100
+//                val afterPointString = if (afterPoint < 10) "0$afterPoint" else afterPoint
+                val countString = count.toString()
+                val countLength = countString.length
+                val substringAfterPoint = countString.substring(countLength - 3, countLength - 1)
+                "${count / THOUSAND}.${substringAfterPoint}K"
             }
             in MILLION until BILLION -> {
                 "${count / MILLION}.${count / 10_000 % 100}M"

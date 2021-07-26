@@ -53,6 +53,7 @@ class IncomeAdapter(
                 if (currentIncomeItem.globalClickMorePrice()) {
                     currentIncomeItem.setGlobalVariables()
                     currentItem.remained = currentIncomeItem.getRemained()
+                    Toast.makeText(context, "Purchased successfully", Toast.LENGTH_SHORT).show()
                     notifyItemChanged(position)
                 } else {
                     Toast.makeText(context, "Not enough click", Toast.LENGTH_SHORT).show()

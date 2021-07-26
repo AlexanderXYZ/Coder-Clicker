@@ -1,16 +1,13 @@
 package com.buslaev.coderclicker.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import com.buslaev.coderclicker.MainActivity
 import com.buslaev.coderclicker.R
 import com.buslaev.coderclicker.databinding.FragmentMainBinding
 import com.buslaev.coderclicker.viewModels.mainViewModel.MainViewModel
@@ -92,7 +89,7 @@ class MainFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        mViewModel.setCodes()
+        mViewModel.setCodesAndMoney()
     }
 
 }
